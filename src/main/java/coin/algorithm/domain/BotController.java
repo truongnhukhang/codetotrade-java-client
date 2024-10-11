@@ -1,6 +1,4 @@
-package coin.algorithm;
-
-import coin.algorithm.domain.TradeMetadata;
+package coin.algorithm.domain;
 
 import java.util.Map;
 

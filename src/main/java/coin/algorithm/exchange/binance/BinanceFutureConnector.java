@@ -394,52 +394,7 @@ public class BinanceFutureConnector {
         });
     }
 
-    /*
-     * Example json response
-        [
-            {
-                "entryPrice": "0.00000",
-                "breakEvenPrice": "0.0",
-                "marginType": "isolated",
-                "isAutoAddMargin": "false",
-                "isolatedMargin": "0.00000000",
-                "leverage": "10",
-                "liquidationPrice": "0",
-                "markPrice": "6679.50671178",
-                "maxNotionalValue": "20000000",
-                "positionAmt": "0.000",
-                "notional": "0",,
-                "isolatedWallet": "0",
-                "symbol": "BTCUSDT",
-                "unRealizedProfit": "0.00000000",
-                "positionSide": "BOTH",
-                "updateTime": 0
-            }
-        ]
-     */
-//    public Map<String,Object> closePosition(String symbol, boolean isTestOrder) throws Exception {
-//        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
-//        params.put("symbol", symbol);
-//        String jsonStr = client.account().positionInformation(params);
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        List<Map<String, Object>> root = objectMapper.readValue(jsonStr, new TypeReference<>() {
-//        });
-//        if (root.size() <= 0) {
-//            throw new Exception("No position found");
-//        }
-//        Map<String, Object> positionObj = root.get(0);
-//        double unRealizedProfit = Double.parseDouble((String) positionObj.get("unRealizedProfit"));
-//        double entryPrice = Double.parseDouble((String) positionObj.get("entryPrice"));
-//        double markPrice = Double.parseDouble((String) positionObj.get("markPrice"));
-//        String quantity = (String) positionObj.get("positionAmt");
-//        boolean currentIsBuy = (unRealizedProfit < 0 && markPrice < entryPrice) || (unRealizedProfit > 0 && markPrice > entryPrice);
-//        if (currentIsBuy) {
-//            return  placeMarketSellOrder(symbol, quantity, isTestOrder);
-//        } else {
-//            return placeMarketBuyOrder(symbol, quantity, isTestOrder);
-//        }
-//
-//    }
+
 
     public void subscribeCandleEvent(Map<String,List<Integer>> symbolIntervalsMap, Consumer<String> onMessage,
                                      Consumer<String> onError, Consumer<String> onOpen, Consumer<String> onClosing) {

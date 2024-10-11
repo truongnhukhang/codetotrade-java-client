@@ -1,8 +1,6 @@
 package coin.algorithm.domain;
 
-import coin.algorithm.BotController;
 import coin.algorithm.domain.chart.Chart;
-import coin.algorithm.domain.series.Candle;
 import org.ta4j.core.Bar;
 import org.ta4j.core.BarSeries;
 
@@ -16,9 +14,6 @@ public abstract class BaseBot implements BotController {
     protected BarSeries barSeries;
     protected Map<Duration, BarSeries> btcDomBarSeries = new HashMap<>();
     protected Map<Duration, BarSeries> otherBarSeries = new HashMap<>();
-    List<Candle> candles;
-    Map<Duration, List<Candle>> btcDomCandles = new HashMap<>();
-    Map<Duration, List<Candle>> otherCandles = new HashMap<>();
     protected CoinInfo coinInfo;
     protected BotConfig botConfig;
     protected List<Chart> chartList = new ArrayList<>();
@@ -116,30 +111,6 @@ public abstract class BaseBot implements BotController {
 
     public void setChartList(List<Chart> chartList) {
         this.chartList = chartList;
-    }
-
-    public List<Candle> getCandles() {
-        return candles;
-    }
-
-    public void setCandles(List<Candle> candles) {
-        this.candles = candles;
-    }
-
-    public Map<Duration, List<Candle>> getBtcDomCandles() {
-        return btcDomCandles;
-    }
-
-    public void setBtcDomCandles(Map<Duration, List<Candle>> btcDomCandles) {
-        this.btcDomCandles = btcDomCandles;
-    }
-
-    public Map<Duration, List<Candle>> getOtherCandles() {
-        return otherCandles;
-    }
-
-    public void setOtherCandles(Map<Duration, List<Candle>> otherCandles) {
-        this.otherCandles = otherCandles;
     }
 
     public BarSeries getBarSeries() {
