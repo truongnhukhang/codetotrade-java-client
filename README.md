@@ -4,7 +4,7 @@ This is the codetotrade.app Java client.
 
 ## Overview
 
-This project is a Java client for interacting with the codetotrade.app platform. It includes a trading bot that uses the MACD and RSI indicators to make buy and sell decisions.
+This project is a Java client for interacting with the codetotrade.app platform. It includes a example trading bot that uses the MACD and RSI indicators to make buy and sell decisions.
 
 ## Features
 
