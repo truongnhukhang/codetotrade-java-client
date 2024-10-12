@@ -20,18 +20,15 @@ This project is a Java client for interacting with the codetotrade.app platform.
 - Java 21 or higher
 - Maven
 
-## Installation
-
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/codetotrade-java-client.git
-    cd codetotrade-java-client
-    ```
-
-2. Build the project using Maven:
-    ```sh
-    mvn clean install
-    ```
+## Quick start
+```
+<dependency>
+    <groupId>io.github.truongnhukhang</groupId>
+    <artifactId>codetotrade-java-client</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+Run `mvn install` where `pom.xml` is located to install the dependency.
 
 ## Usage
 
