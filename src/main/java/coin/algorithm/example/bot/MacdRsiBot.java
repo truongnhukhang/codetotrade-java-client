@@ -1,4 +1,4 @@
-package coin.algorithm.bot;
+package coin.algorithm.example.bot;
 
 import coin.algorithm.domain.BaseBot;
 import coin.algorithm.domain.TradeMetadata;

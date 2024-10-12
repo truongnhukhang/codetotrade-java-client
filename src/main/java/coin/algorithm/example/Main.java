@@ -1,6 +1,6 @@
-package coin.algorithm;
+package coin.algorithm.example;
 
-import coin.algorithm.bot.MacdRsiBot;
+import coin.algorithm.example.bot.MacdRsiBot;
 import coin.algorithm.server.BackTestServer;
 
 import java.io.IOException;
