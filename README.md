@@ -25,7 +25,7 @@ This project is a Java client for interacting with the codetotrade.app platform.
 <dependency>
     <groupId>io.github.truongnhukhang</groupId>
     <artifactId>codetotrade-java-client</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 Run `mvn install` where `pom.xml` is located to install the dependency.
