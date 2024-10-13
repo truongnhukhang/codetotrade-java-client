@@ -5,104 +5,93 @@
 package coin.algorithm.grpc.service;
 
 /**
- * Protobuf type {@code coin.algorithm.grpc.service.generated.GetTradeMetadataRequest}
+ * Protobuf type {@code coin.algorithm.grpc.service.generated.Signal}
  */
-public final class GetTradeMetadataRequest extends
+public final class Signal extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:coin.algorithm.grpc.service.generated.GetTradeMetadataRequest)
-    GetTradeMetadataRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:coin.algorithm.grpc.service.generated.Signal)
+    SignalOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GetTradeMetadataRequest.newBuilder() to construct.
-  private GetTradeMetadataRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use Signal.newBuilder() to construct.
+  private Signal(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetTradeMetadataRequest() {
-    onlineId_ = "";
+  private Signal() {
   }
 
   @Override
   @SuppressWarnings({"unused"})
   protected Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GetTradeMetadataRequest();
+    return new Signal();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return CoinService.internal_static_coin_algorithm_grpc_service_generated_GetTradeMetadataRequest_descriptor;
+    return CoinService.internal_static_coin_algorithm_grpc_service_generated_Signal_descriptor;
   }
 
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return CoinService.internal_static_coin_algorithm_grpc_service_generated_GetTradeMetadataRequest_fieldAccessorTable
+    return CoinService.internal_static_coin_algorithm_grpc_service_generated_Signal_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            GetTradeMetadataRequest.class, Builder.class);
+            Signal.class, Builder.class);
   }
 
-  public static final int ONLINEID_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile Object onlineId_ = "";
+  public static final int TIME_FIELD_NUMBER = 1;
+  private long time_ = 0L;
   /**
-   * <code>string onlineId = 1;</code>
-   * @return The onlineId.
+   * <code>int64 time = 1;</code>
+   * @return The time.
    */
   @Override
-  public String getOnlineId() {
-    Object ref = onlineId_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      onlineId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string onlineId = 1;</code>
-   * @return The bytes for onlineId.
-   */
-  @Override
-  public com.google.protobuf.ByteString
-      getOnlineIdBytes() {
-    Object ref = onlineId_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      onlineId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getTime() {
+    return time_;
   }
 
-  public static final int TRADETYPE_FIELD_NUMBER = 2;
-  private int tradeType_ = 0;
+  public static final int ISBUY_FIELD_NUMBER = 2;
+  private boolean isBuy_ = false;
   /**
-   * <pre>
-   * [optional] 1: buy, 2: sell, 3: closeBuy, 4: closeSell
-   * </pre>
-   *
-   * <code>int32 tradeType = 2;</code>
-   * @return The tradeType.
+   * <code>bool isBuy = 2;</code>
+   * @return The isBuy.
    */
   @Override
-  public int getTradeType() {
-    return tradeType_;
+  public boolean getIsBuy() {
+    return isBuy_;
   }
 
-  public static final int IDX_FIELD_NUMBER = 3;
-  private int idx_ = 0;
+  public static final int ISSELL_FIELD_NUMBER = 3;
+  private boolean isSell_ = false;
   /**
-   * <code>int32 idx = 3;</code>
-   * @return The idx.
+   * <code>bool isSell = 3;</code>
+   * @return The isSell.
    */
   @Override
-  public int getIdx() {
-    return idx_;
+  public boolean getIsSell() {
+    return isSell_;
+  }
+
+  public static final int ISCLOSEBUY_FIELD_NUMBER = 4;
+  private boolean isCloseBuy_ = false;
+  /**
+   * <code>bool isCloseBuy = 4;</code>
+   * @return The isCloseBuy.
+   */
+  @Override
+  public boolean getIsCloseBuy() {
+    return isCloseBuy_;
+  }
+
+  public static final int ISCLOSESELL_FIELD_NUMBER = 5;
+  private boolean isCloseSell_ = false;
+  /**
+   * <code>bool isCloseSell = 5;</code>
+   * @return The isCloseSell.
+   */
+  @Override
+  public boolean getIsCloseSell() {
+    return isCloseSell_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -119,14 +108,20 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(onlineId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, onlineId_);
+    if (time_ != 0L) {
+      output.writeInt64(1, time_);
     }
-    if (tradeType_ != 0) {
-      output.writeInt32(2, tradeType_);
+    if (isBuy_ != false) {
+      output.writeBool(2, isBuy_);
     }
-    if (idx_ != 0) {
-      output.writeInt32(3, idx_);
+    if (isSell_ != false) {
+      output.writeBool(3, isSell_);
+    }
+    if (isCloseBuy_ != false) {
+      output.writeBool(4, isCloseBuy_);
+    }
+    if (isCloseSell_ != false) {
+      output.writeBool(5, isCloseSell_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -137,16 +132,25 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(onlineId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, onlineId_);
-    }
-    if (tradeType_ != 0) {
+    if (time_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, tradeType_);
+        .computeInt64Size(1, time_);
     }
-    if (idx_ != 0) {
+    if (isBuy_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, idx_);
+        .computeBoolSize(2, isBuy_);
+    }
+    if (isSell_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, isSell_);
+    }
+    if (isCloseBuy_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, isCloseBuy_);
+    }
+    if (isCloseSell_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, isCloseSell_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -158,17 +162,21 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof GetTradeMetadataRequest)) {
+    if (!(obj instanceof Signal)) {
       return super.equals(obj);
     }
-    GetTradeMetadataRequest other = (GetTradeMetadataRequest) obj;
+    Signal other = (Signal) obj;
 
-    if (!getOnlineId()
-        .equals(other.getOnlineId())) return false;
-    if (getTradeType()
-        != other.getTradeType()) return false;
-    if (getIdx()
-        != other.getIdx()) return false;
+    if (getTime()
+        != other.getTime()) return false;
+    if (getIsBuy()
+        != other.getIsBuy()) return false;
+    if (getIsSell()
+        != other.getIsSell()) return false;
+    if (getIsCloseBuy()
+        != other.getIsCloseBuy()) return false;
+    if (getIsCloseSell()
+        != other.getIsCloseSell()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -180,55 +188,64 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ONLINEID_FIELD_NUMBER;
-    hash = (53 * hash) + getOnlineId().hashCode();
-    hash = (37 * hash) + TRADETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getTradeType();
-    hash = (37 * hash) + IDX_FIELD_NUMBER;
-    hash = (53 * hash) + getIdx();
+    hash = (37 * hash) + TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTime());
+    hash = (37 * hash) + ISBUY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsBuy());
+    hash = (37 * hash) + ISSELL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsSell());
+    hash = (37 * hash) + ISCLOSEBUY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsCloseBuy());
+    hash = (37 * hash) + ISCLOSESELL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsCloseSell());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static GetTradeMetadataRequest parseFrom(byte[] data)
+  public static Signal parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static GetTradeMetadataRequest parseFrom(java.io.InputStream input)
+  public static Signal parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -236,26 +253,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static GetTradeMetadataRequest parseDelimitedFrom(java.io.InputStream input)
+  public static Signal parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static GetTradeMetadataRequest parseDelimitedFrom(
+  public static Signal parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static GetTradeMetadataRequest parseFrom(
+  public static Signal parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -268,7 +285,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(GetTradeMetadataRequest prototype) {
+  public static Builder newBuilder(Signal prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @Override
@@ -284,26 +301,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code coin.algorithm.grpc.service.generated.GetTradeMetadataRequest}
+   * Protobuf type {@code coin.algorithm.grpc.service.generated.Signal}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:coin.algorithm.grpc.service.generated.GetTradeMetadataRequest)
-      GetTradeMetadataRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:coin.algorithm.grpc.service.generated.Signal)
+      SignalOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return CoinService.internal_static_coin_algorithm_grpc_service_generated_GetTradeMetadataRequest_descriptor;
+      return CoinService.internal_static_coin_algorithm_grpc_service_generated_Signal_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return CoinService.internal_static_coin_algorithm_grpc_service_generated_GetTradeMetadataRequest_fieldAccessorTable
+      return CoinService.internal_static_coin_algorithm_grpc_service_generated_Signal_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              GetTradeMetadataRequest.class, Builder.class);
+              Signal.class, Builder.class);
     }
 
-    // Construct using coin.algorithm.grpc.service.GetTradeMetadataRequest.newBuilder()
+    // Construct using coin.algorithm.grpc.service.Signal.newBuilder()
     private Builder() {
 
     }
@@ -317,26 +334,28 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      onlineId_ = "";
-      tradeType_ = 0;
-      idx_ = 0;
+      time_ = 0L;
+      isBuy_ = false;
+      isSell_ = false;
+      isCloseBuy_ = false;
+      isCloseSell_ = false;
       return this;
     }
 
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return CoinService.internal_static_coin_algorithm_grpc_service_generated_GetTradeMetadataRequest_descriptor;
+      return CoinService.internal_static_coin_algorithm_grpc_service_generated_Signal_descriptor;
     }
 
     @Override
-    public GetTradeMetadataRequest getDefaultInstanceForType() {
-      return GetTradeMetadataRequest.getDefaultInstance();
+    public Signal getDefaultInstanceForType() {
+      return Signal.getDefaultInstance();
     }
 
     @Override
-    public GetTradeMetadataRequest build() {
-      GetTradeMetadataRequest result = buildPartial();
+    public Signal build() {
+      Signal result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -344,23 +363,29 @@ private static final long serialVersionUID = 0L;
     }
 
     @Override
-    public GetTradeMetadataRequest buildPartial() {
-      GetTradeMetadataRequest result = new GetTradeMetadataRequest(this);
+    public Signal buildPartial() {
+      Signal result = new Signal(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(GetTradeMetadataRequest result) {
+    private void buildPartial0(Signal result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.onlineId_ = onlineId_;
+        result.time_ = time_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.tradeType_ = tradeType_;
+        result.isBuy_ = isBuy_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.idx_ = idx_;
+        result.isSell_ = isSell_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.isCloseBuy_ = isCloseBuy_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.isCloseSell_ = isCloseSell_;
       }
     }
 
@@ -398,26 +423,30 @@ private static final long serialVersionUID = 0L;
     }
     @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof GetTradeMetadataRequest) {
-        return mergeFrom((GetTradeMetadataRequest)other);
+      if (other instanceof Signal) {
+        return mergeFrom((Signal)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(GetTradeMetadataRequest other) {
-      if (other == GetTradeMetadataRequest.getDefaultInstance()) return this;
-      if (!other.getOnlineId().isEmpty()) {
-        onlineId_ = other.onlineId_;
-        bitField0_ |= 0x00000001;
-        onChanged();
+    public Builder mergeFrom(Signal other) {
+      if (other == Signal.getDefaultInstance()) return this;
+      if (other.getTime() != 0L) {
+        setTime(other.getTime());
       }
-      if (other.getTradeType() != 0) {
-        setTradeType(other.getTradeType());
+      if (other.getIsBuy() != false) {
+        setIsBuy(other.getIsBuy());
       }
-      if (other.getIdx() != 0) {
-        setIdx(other.getIdx());
+      if (other.getIsSell() != false) {
+        setIsSell(other.getIsSell());
+      }
+      if (other.getIsCloseBuy() != false) {
+        setIsCloseBuy(other.getIsCloseBuy());
+      }
+      if (other.getIsCloseSell() != false) {
+        setIsCloseSell(other.getIsCloseSell());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -445,21 +474,31 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              onlineId_ = input.readStringRequireUtf8();
+            case 8: {
+              time_ = input.readInt64();
               bitField0_ |= 0x00000001;
               break;
-            } // case 10
+            } // case 8
             case 16: {
-              tradeType_ = input.readInt32();
+              isBuy_ = input.readBool();
               bitField0_ |= 0x00000002;
               break;
             } // case 16
             case 24: {
-              idx_ = input.readInt32();
+              isSell_ = input.readBool();
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 32: {
+              isCloseBuy_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              isCloseSell_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -477,150 +516,162 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private Object onlineId_ = "";
+    private long time_ ;
     /**
-     * <code>string onlineId = 1;</code>
-     * @return The onlineId.
-     */
-    public String getOnlineId() {
-      Object ref = onlineId_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        onlineId_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string onlineId = 1;</code>
-     * @return The bytes for onlineId.
-     */
-    public com.google.protobuf.ByteString
-        getOnlineIdBytes() {
-      Object ref = onlineId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        onlineId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string onlineId = 1;</code>
-     * @param value The onlineId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOnlineId(
-        String value) {
-      if (value == null) { throw new NullPointerException(); }
-      onlineId_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string onlineId = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOnlineId() {
-      onlineId_ = getDefaultInstance().getOnlineId();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string onlineId = 1;</code>
-     * @param value The bytes for onlineId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOnlineIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      onlineId_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
-    private int tradeType_ ;
-    /**
-     * <pre>
-     * [optional] 1: buy, 2: sell, 3: closeBuy, 4: closeSell
-     * </pre>
-     *
-     * <code>int32 tradeType = 2;</code>
-     * @return The tradeType.
+     * <code>int64 time = 1;</code>
+     * @return The time.
      */
     @Override
-    public int getTradeType() {
-      return tradeType_;
+    public long getTime() {
+      return time_;
     }
     /**
-     * <pre>
-     * [optional] 1: buy, 2: sell, 3: closeBuy, 4: closeSell
-     * </pre>
-     *
-     * <code>int32 tradeType = 2;</code>
-     * @param value The tradeType to set.
+     * <code>int64 time = 1;</code>
+     * @param value The time to set.
      * @return This builder for chaining.
      */
-    public Builder setTradeType(int value) {
+    public Builder setTime(long value) {
 
-      tradeType_ = value;
+      time_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 time = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTime() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      time_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private boolean isBuy_ ;
+    /**
+     * <code>bool isBuy = 2;</code>
+     * @return The isBuy.
+     */
+    @Override
+    public boolean getIsBuy() {
+      return isBuy_;
+    }
+    /**
+     * <code>bool isBuy = 2;</code>
+     * @param value The isBuy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsBuy(boolean value) {
+
+      isBuy_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     * [optional] 1: buy, 2: sell, 3: closeBuy, 4: closeSell
-     * </pre>
-     *
-     * <code>int32 tradeType = 2;</code>
+     * <code>bool isBuy = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearTradeType() {
+    public Builder clearIsBuy() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      tradeType_ = 0;
+      isBuy_ = false;
       onChanged();
       return this;
     }
 
-    private int idx_ ;
+    private boolean isSell_ ;
     /**
-     * <code>int32 idx = 3;</code>
-     * @return The idx.
+     * <code>bool isSell = 3;</code>
+     * @return The isSell.
      */
     @Override
-    public int getIdx() {
-      return idx_;
+    public boolean getIsSell() {
+      return isSell_;
     }
     /**
-     * <code>int32 idx = 3;</code>
-     * @param value The idx to set.
+     * <code>bool isSell = 3;</code>
+     * @param value The isSell to set.
      * @return This builder for chaining.
      */
-    public Builder setIdx(int value) {
+    public Builder setIsSell(boolean value) {
 
-      idx_ = value;
+      isSell_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 idx = 3;</code>
+     * <code>bool isSell = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearIdx() {
+    public Builder clearIsSell() {
       bitField0_ = (bitField0_ & ~0x00000004);
-      idx_ = 0;
+      isSell_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean isCloseBuy_ ;
+    /**
+     * <code>bool isCloseBuy = 4;</code>
+     * @return The isCloseBuy.
+     */
+    @Override
+    public boolean getIsCloseBuy() {
+      return isCloseBuy_;
+    }
+    /**
+     * <code>bool isCloseBuy = 4;</code>
+     * @param value The isCloseBuy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsCloseBuy(boolean value) {
+
+      isCloseBuy_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isCloseBuy = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsCloseBuy() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      isCloseBuy_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean isCloseSell_ ;
+    /**
+     * <code>bool isCloseSell = 5;</code>
+     * @return The isCloseSell.
+     */
+    @Override
+    public boolean getIsCloseSell() {
+      return isCloseSell_;
+    }
+    /**
+     * <code>bool isCloseSell = 5;</code>
+     * @param value The isCloseSell to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsCloseSell(boolean value) {
+
+      isCloseSell_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isCloseSell = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsCloseSell() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      isCloseSell_ = false;
       onChanged();
       return this;
     }
@@ -637,23 +688,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:coin.algorithm.grpc.service.generated.GetTradeMetadataRequest)
+    // @@protoc_insertion_point(builder_scope:coin.algorithm.grpc.service.generated.Signal)
   }
 
-  // @@protoc_insertion_point(class_scope:coin.algorithm.grpc.service.generated.GetTradeMetadataRequest)
-  private static final GetTradeMetadataRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:coin.algorithm.grpc.service.generated.Signal)
+  private static final Signal DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new GetTradeMetadataRequest();
+    DEFAULT_INSTANCE = new Signal();
   }
 
-  public static GetTradeMetadataRequest getDefaultInstance() {
+  public static Signal getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetTradeMetadataRequest>
-      PARSER = new com.google.protobuf.AbstractParser<GetTradeMetadataRequest>() {
+  private static final com.google.protobuf.Parser<Signal>
+      PARSER = new com.google.protobuf.AbstractParser<Signal>() {
     @Override
-    public GetTradeMetadataRequest parsePartialFrom(
+    public Signal parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -672,17 +723,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<GetTradeMetadataRequest> parser() {
+  public static com.google.protobuf.Parser<Signal> parser() {
     return PARSER;
   }
 
   @Override
-  public com.google.protobuf.Parser<GetTradeMetadataRequest> getParserForType() {
+  public com.google.protobuf.Parser<Signal> getParserForType() {
     return PARSER;
   }
 
   @Override
-  public GetTradeMetadataRequest getDefaultInstanceForType() {
+  public Signal getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

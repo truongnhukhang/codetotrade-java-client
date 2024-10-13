@@ -52,7 +52,7 @@ public class MacdRsiBot extends BaseBot {
         double takeProfit = price * 1.02;
         // the coin is btc/usdt . amount is number btc we buy or sell and it calculated based on the stop loss which guarantees maximum stop loss is 45$
         double amount = 45 / (price - stopLoss);
-        return new TradeMetadata(price, amount, stopLoss, takeProfit, logs, 0);
+        return new TradeMetadata(price, amount, takeProfit, stopLoss, logs, 0);
     }
 
     @Override
@@ -69,6 +69,6 @@ public class MacdRsiBot extends BaseBot {
         double takeProfit = price * 0.98;
         // the coin is btc/usdt . amount is number btc we buy or sell and it calculated based on the stop loss which guarantees maximum stop loss is 45$
         double amount = 45 / (stopLoss - price);
-        return new TradeMetadata(price, amount, stopLoss, takeProfit, logs, 0);
+        return new TradeMetadata(price, amount, takeProfit, stopLoss, logs, 0);
     }
 }

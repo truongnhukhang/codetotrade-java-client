@@ -9,7 +9,11 @@ public interface BotController {
 
     boolean isSell(int index);
 
-    default boolean isCloseCurrentPosition(int index) {
+    default boolean isCloseBuyPosition(int index) {
+        return false;
+    }
+
+    default boolean isCloseSellPosition(int index) {
         return false;
     }
 

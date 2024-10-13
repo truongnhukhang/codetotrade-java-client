@@ -39,37 +39,31 @@ private static final long serialVersionUID = 0L;
             GetSignalResponse.class, Builder.class);
   }
 
-  public static final int ISBUY_FIELD_NUMBER = 1;
-  private boolean isBuy_ = false;
+  private int bitField0_;
+  public static final int SIGNAL_FIELD_NUMBER = 1;
+  private Signal signal_;
   /**
-   * <code>bool isBuy = 1;</code>
-   * @return The isBuy.
+   * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   * @return Whether the signal field is set.
    */
   @Override
-  public boolean getIsBuy() {
-    return isBuy_;
+  public boolean hasSignal() {
+    return ((bitField0_ & 0x00000001) != 0);
   }
-
-  public static final int ISSELL_FIELD_NUMBER = 2;
-  private boolean isSell_ = false;
   /**
-   * <code>bool isSell = 2;</code>
-   * @return The isSell.
+   * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   * @return The signal.
    */
   @Override
-  public boolean getIsSell() {
-    return isSell_;
+  public Signal getSignal() {
+    return signal_ == null ? Signal.getDefaultInstance() : signal_;
   }
-
-  public static final int ISCLOSE_FIELD_NUMBER = 3;
-  private boolean isClose_ = false;
   /**
-   * <code>bool isClose = 3;</code>
-   * @return The isClose.
+   * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
   @Override
-  public boolean getIsClose() {
-    return isClose_;
+  public SignalOrBuilder getSignalOrBuilder() {
+    return signal_ == null ? Signal.getDefaultInstance() : signal_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -86,14 +80,8 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (isBuy_ != false) {
-      output.writeBool(1, isBuy_);
-    }
-    if (isSell_ != false) {
-      output.writeBool(2, isSell_);
-    }
-    if (isClose_ != false) {
-      output.writeBool(3, isClose_);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(1, getSignal());
     }
     getUnknownFields().writeTo(output);
   }
@@ -104,17 +92,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (isBuy_ != false) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(1, isBuy_);
-    }
-    if (isSell_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(2, isSell_);
-    }
-    if (isClose_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, isClose_);
+        .computeMessageSize(1, getSignal());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -131,12 +111,11 @@ private static final long serialVersionUID = 0L;
     }
     GetSignalResponse other = (GetSignalResponse) obj;
 
-    if (getIsBuy()
-        != other.getIsBuy()) return false;
-    if (getIsSell()
-        != other.getIsSell()) return false;
-    if (getIsClose()
-        != other.getIsClose()) return false;
+    if (hasSignal() != other.hasSignal()) return false;
+    if (hasSignal()) {
+      if (!getSignal()
+          .equals(other.getSignal())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -148,15 +127,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ISBUY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsBuy());
-    hash = (37 * hash) + ISSELL_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsSell());
-    hash = (37 * hash) + ISCLOSE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsClose());
+    if (hasSignal()) {
+      hash = (37 * hash) + SIGNAL_FIELD_NUMBER;
+      hash = (53 * hash) + getSignal().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -276,21 +250,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using coin.algorithm.grpc.service.GetSignalResponse.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getSignalFieldBuilder();
+      }
     }
     @Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      isBuy_ = false;
-      isSell_ = false;
-      isClose_ = false;
+      signal_ = null;
+      if (signalBuilder_ != null) {
+        signalBuilder_.dispose();
+        signalBuilder_ = null;
+      }
       return this;
     }
 
@@ -324,15 +306,14 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(GetSignalResponse result) {
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.isBuy_ = isBuy_;
+        result.signal_ = signalBuilder_ == null
+            ? signal_
+            : signalBuilder_.build();
+        to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.isSell_ = isSell_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.isClose_ = isClose_;
-      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @Override
@@ -379,14 +360,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(GetSignalResponse other) {
       if (other == GetSignalResponse.getDefaultInstance()) return this;
-      if (other.getIsBuy() != false) {
-        setIsBuy(other.getIsBuy());
-      }
-      if (other.getIsSell() != false) {
-        setIsSell(other.getIsSell());
-      }
-      if (other.getIsClose() != false) {
-        setIsClose(other.getIsClose());
+      if (other.hasSignal()) {
+        mergeSignal(other.getSignal());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -414,21 +389,13 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              isBuy_ = input.readBool();
+            case 10: {
+              input.readMessage(
+                  getSignalFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000001;
               break;
-            } // case 8
-            case 16: {
-              isSell_ = input.readBool();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 16
-            case 24: {
-              isClose_ = input.readBool();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 24
+            } // case 10
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -446,100 +413,125 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private boolean isBuy_ ;
+    private Signal signal_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        Signal, Signal.Builder, SignalOrBuilder> signalBuilder_;
     /**
-     * <code>bool isBuy = 1;</code>
-     * @return The isBuy.
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     * @return Whether the signal field is set.
      */
-    @Override
-    public boolean getIsBuy() {
-      return isBuy_;
+    public boolean hasSignal() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>bool isBuy = 1;</code>
-     * @param value The isBuy to set.
-     * @return This builder for chaining.
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     * @return The signal.
      */
-    public Builder setIsBuy(boolean value) {
-
-      isBuy_ = value;
+    public Signal getSignal() {
+      if (signalBuilder_ == null) {
+        return signal_ == null ? Signal.getDefaultInstance() : signal_;
+      } else {
+        return signalBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder setSignal(Signal value) {
+      if (signalBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        signal_ = value;
+      } else {
+        signalBuilder_.setMessage(value);
+      }
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>bool isBuy = 1;</code>
-     * @return This builder for chaining.
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder clearIsBuy() {
+    public Builder setSignal(
+        Signal.Builder builderForValue) {
+      if (signalBuilder_ == null) {
+        signal_ = builderForValue.build();
+      } else {
+        signalBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder mergeSignal(Signal value) {
+      if (signalBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          signal_ != null &&
+          signal_ != Signal.getDefaultInstance()) {
+          getSignalBuilder().mergeFrom(value);
+        } else {
+          signal_ = value;
+        }
+      } else {
+        signalBuilder_.mergeFrom(value);
+      }
+      if (signal_ != null) {
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder clearSignal() {
       bitField0_ = (bitField0_ & ~0x00000001);
-      isBuy_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean isSell_ ;
-    /**
-     * <code>bool isSell = 2;</code>
-     * @return The isSell.
-     */
-    @Override
-    public boolean getIsSell() {
-      return isSell_;
-    }
-    /**
-     * <code>bool isSell = 2;</code>
-     * @param value The isSell to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIsSell(boolean value) {
-
-      isSell_ = value;
-      bitField0_ |= 0x00000002;
+      signal_ = null;
+      if (signalBuilder_ != null) {
+        signalBuilder_.dispose();
+        signalBuilder_ = null;
+      }
       onChanged();
       return this;
     }
     /**
-     * <code>bool isSell = 2;</code>
-     * @return This builder for chaining.
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder clearIsSell() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      isSell_ = false;
+    public Signal.Builder getSignalBuilder() {
+      bitField0_ |= 0x00000001;
       onChanged();
-      return this;
-    }
-
-    private boolean isClose_ ;
-    /**
-     * <code>bool isClose = 3;</code>
-     * @return The isClose.
-     */
-    @Override
-    public boolean getIsClose() {
-      return isClose_;
+      return getSignalFieldBuilder().getBuilder();
     }
     /**
-     * <code>bool isClose = 3;</code>
-     * @param value The isClose to set.
-     * @return This builder for chaining.
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder setIsClose(boolean value) {
-
-      isClose_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
+    public SignalOrBuilder getSignalOrBuilder() {
+      if (signalBuilder_ != null) {
+        return signalBuilder_.getMessageOrBuilder();
+      } else {
+        return signal_ == null ?
+            Signal.getDefaultInstance() : signal_;
+      }
     }
     /**
-     * <code>bool isClose = 3;</code>
-     * @return This builder for chaining.
+     * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder clearIsClose() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      isClose_ = false;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        Signal, Signal.Builder, SignalOrBuilder>
+        getSignalFieldBuilder() {
+      if (signalBuilder_ == null) {
+        signalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            Signal, Signal.Builder, SignalOrBuilder>(
+                getSignal(),
+                getParentForChildren(),
+                isClean());
+        signal_ = null;
+      }
+      return signalBuilder_;
     }
     @Override
     public final Builder setUnknownFields(

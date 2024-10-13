@@ -22,7 +22,7 @@ public interface GetTradeMetadataRequestOrBuilder extends
 
   /**
    * <pre>
-   * [optional] 1: buy, 2: sell, 3: close
+   * [optional] 1: buy, 2: sell, 3: closeBuy, 4: closeSell
    * </pre>
    *
    * <code>int32 tradeType = 2;</code>

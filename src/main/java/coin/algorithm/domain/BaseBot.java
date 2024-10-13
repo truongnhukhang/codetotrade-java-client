@@ -61,27 +61,28 @@ public abstract class BaseBot implements BotController {
 
     public TimeTravel timeTravel() {
         TimeTravel timeTravel = new TimeTravel();
-        List<Integer> buysell = new ArrayList<>(this.barSeries.getBarCount());
+        List<Signal> signals = new ArrayList<>(this.barSeries.getBarCount());
         List<TradeMetadata> metadata = new ArrayList<>(this.barSeries.getBarCount());
         for (int i = this.barSeries.getBeginIndex(); i <= this.barSeries.getEndIndex(); i++) {
+            Signal signal = new Signal(
+                    this.barSeries.getBar(i).getBeginTime().toInstant().toEpochMilli(),
+                    isBuy(i),
+                    isSell(i),
+                    isCloseBuyPosition(i),
+                    isCloseSellPosition(i)
+            );
+            signals.add(signal);
             if (isBuy(i)) {
-                buysell.add(1);
                 metadata.add(buy(i));
             }
             if (isSell(i)) {
-                buysell.add(2);
                 metadata.add(sell(i));
             }
-            if(botConfig.isEnableCloseMode() && isCloseCurrentPosition(i)) {
-                buysell.add(3);
-                metadata.add(new TradeMetadata());
-            }
             if (!isBuy(i) && !isSell(i)) {
-                buysell.add(0);
                 metadata.add(new TradeMetadata());
             }
         }
-        timeTravel.setBuySell(buysell);
+        timeTravel.setSignals(signals);
         timeTravel.setMetadata(metadata);
         return timeTravel;
     }
@@ -112,6 +113,7 @@ public abstract class BaseBot implements BotController {
     public void setChartList(List<Chart> chartList) {
         this.chartList = chartList;
     }
+
 
     public BarSeries getBarSeries() {
         return barSeries;

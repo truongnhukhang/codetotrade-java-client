@@ -1,13 +1,10 @@
 package coin.algorithm.grpc.server;
 
-import coin.algorithm.domain.BackTestData;
-import coin.algorithm.domain.BaseBot;
-import coin.algorithm.domain.BotConfig;
-import coin.algorithm.domain.CoinInfo;
 import coin.algorithm.domain.TradeMetadata;
+import coin.algorithm.domain.*;
 import coin.algorithm.exchange.binance.BinanceFutureConnector;
+import coin.algorithm.grpc.service.Signal;
 import coin.algorithm.grpc.service.*;
-import com.binance.connector.futures.client.enums.DefaultUrls;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.grpc.stub.StreamObserver;
@@ -222,9 +219,13 @@ public class BinanceServiceImpl extends CoinAlgorithmServiceGrpc.CoinAlgorithmSe
     BaseBot baseBot = botMap.get(onlineId);
     responseObserver.onNext(
         GetSignalResponse.newBuilder()
-            .setIsBuy(baseBot.isBuy(idx))
-            .setIsSell(baseBot.isSell(idx))
-            .setIsClose(baseBot.isCloseCurrentPosition(idx))
+            .setSignal(
+                Signal.newBuilder()
+                    .setIsBuy(baseBot.isBuy(idx))
+                    .setIsSell(baseBot.isSell(idx))
+                    .setIsCloseBuy(baseBot.isCloseBuyPosition(idx))
+                    .setIsCloseSell(baseBot.isCloseSellPosition(idx))
+                    .build())
             .build());
     responseObserver.onCompleted();
   }

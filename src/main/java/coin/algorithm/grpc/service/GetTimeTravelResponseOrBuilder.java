@@ -9,21 +9,28 @@ public interface GetTimeTravelResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated int32 buySell = 1;</code>
-   * @return A list containing the buySell.
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
-  java.util.List<Integer> getBuySellList();
+  java.util.List<Signal>
+      getSignalList();
   /**
-   * <code>repeated int32 buySell = 1;</code>
-   * @return The count of buySell.
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
-  int getBuySellCount();
+  Signal getSignal(int index);
   /**
-   * <code>repeated int32 buySell = 1;</code>
-   * @param index The index of the element to return.
-   * @return The buySell at the given index.
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
-  int getBuySell(int index);
+  int getSignalCount();
+  /**
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   */
+  java.util.List<? extends SignalOrBuilder>
+      getSignalOrBuilderList();
+  /**
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   */
+  SignalOrBuilder getSignalOrBuilder(
+      int index);
 
   /**
    * <code>repeated .coin.algorithm.grpc.service.generated.TradeMetadata tradeMetadata = 2;</code>

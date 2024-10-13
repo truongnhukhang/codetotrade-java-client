@@ -9,20 +9,17 @@ public interface GetSignalResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool isBuy = 1;</code>
-   * @return The isBuy.
+   * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   * @return Whether the signal field is set.
    */
-  boolean getIsBuy();
-
+  boolean hasSignal();
   /**
-   * <code>bool isSell = 2;</code>
-   * @return The isSell.
+   * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   * @return The signal.
    */
-  boolean getIsSell();
-
+  Signal getSignal();
   /**
-   * <code>bool isClose = 3;</code>
-   * @return The isClose.
+   * <code>.coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
-  boolean getIsClose();
+  SignalOrBuilder getSignalOrBuilder();
 }

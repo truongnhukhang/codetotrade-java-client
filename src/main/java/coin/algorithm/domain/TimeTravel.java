@@ -1,15 +1,13 @@
 package coin.algorithm.domain;
 
-import coin.algorithm.domain.TradeMetadata;
-
 import java.util.List;
 
 public class TimeTravel {
-    List<Integer> buySell;
+    List<Signal> signals;
     List<TradeMetadata> metadata;
 
-    public TimeTravel(List<Integer> buySell, List<TradeMetadata> metadata) {
-        this.buySell = buySell;
+    public TimeTravel(List<Signal> signals, List<TradeMetadata> metadata) {
+        this.signals = signals;
         this.metadata = metadata;
     }
 
@@ -17,12 +15,12 @@ public class TimeTravel {
 
     }
 
-    public List<Integer> getBuySell() {
-        return buySell;
+    public List<Signal> getSignals() {
+        return signals;
     }
 
-    public void setBuySell(List<Integer> buySell) {
-        this.buySell = buySell;
+    public void setSignals(List<Signal> signals) {
+        this.signals = signals;
     }
 
     public List<TradeMetadata> getMetadata() {

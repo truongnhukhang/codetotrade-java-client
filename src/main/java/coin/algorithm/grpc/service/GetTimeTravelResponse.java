@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetTimeTravelResponse() {
-    buySell_ = emptyIntList();
+    signal_ = java.util.Collections.emptyList();
     tradeMetadata_ = java.util.Collections.emptyList();
   }
 
@@ -42,35 +42,46 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int BUYSELL_FIELD_NUMBER = 1;
+  public static final int SIGNAL_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private com.google.protobuf.Internal.IntList buySell_ =
-      emptyIntList();
+  private java.util.List<Signal> signal_;
   /**
-   * <code>repeated int32 buySell = 1;</code>
-   * @return A list containing the buySell.
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
   @Override
-  public java.util.List<Integer>
-      getBuySellList() {
-    return buySell_;
+  public java.util.List<Signal> getSignalList() {
+    return signal_;
   }
   /**
-   * <code>repeated int32 buySell = 1;</code>
-   * @return The count of buySell.
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
-  public int getBuySellCount() {
-    return buySell_.size();
+  @Override
+  public java.util.List<? extends SignalOrBuilder>
+      getSignalOrBuilderList() {
+    return signal_;
   }
   /**
-   * <code>repeated int32 buySell = 1;</code>
-   * @param index The index of the element to return.
-   * @return The buySell at the given index.
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
    */
-  public int getBuySell(int index) {
-    return buySell_.getInt(index);
+  @Override
+  public int getSignalCount() {
+    return signal_.size();
   }
-  private int buySellMemoizedSerializedSize = -1;
+  /**
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   */
+  @Override
+  public Signal getSignal(int index) {
+    return signal_.get(index);
+  }
+  /**
+   * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+   */
+  @Override
+  public SignalOrBuilder getSignalOrBuilder(
+      int index) {
+    return signal_.get(index);
+  }
 
   public static final int TRADEMETADATA_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
@@ -153,13 +164,8 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
-    if (getBuySellList().size() > 0) {
-      output.writeUInt32NoTag(10);
-      output.writeUInt32NoTag(buySellMemoizedSerializedSize);
-    }
-    for (int i = 0; i < buySell_.size(); i++) {
-      output.writeInt32NoTag(buySell_.getInt(i));
+    for (int i = 0; i < signal_.size(); i++) {
+      output.writeMessage(1, signal_.get(i));
     }
     for (int i = 0; i < tradeMetadata_.size(); i++) {
       output.writeMessage(2, tradeMetadata_.get(i));
@@ -176,19 +182,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < buySell_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt32SizeNoTag(buySell_.getInt(i));
-      }
-      size += dataSize;
-      if (!getBuySellList().isEmpty()) {
-        size += 1;
-        size += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(dataSize);
-      }
-      buySellMemoizedSerializedSize = dataSize;
+    for (int i = 0; i < signal_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, signal_.get(i));
     }
     for (int i = 0; i < tradeMetadata_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -213,8 +209,8 @@ private static final long serialVersionUID = 0L;
     }
     GetTimeTravelResponse other = (GetTimeTravelResponse) obj;
 
-    if (!getBuySellList()
-        .equals(other.getBuySellList())) return false;
+    if (!getSignalList()
+        .equals(other.getSignalList())) return false;
     if (!getTradeMetadataList()
         .equals(other.getTradeMetadataList())) return false;
     if (hasChartList() != other.hasChartList()) return false;
@@ -233,9 +229,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getBuySellCount() > 0) {
-      hash = (37 * hash) + BUYSELL_FIELD_NUMBER;
-      hash = (53 * hash) + getBuySellList().hashCode();
+    if (getSignalCount() > 0) {
+      hash = (37 * hash) + SIGNAL_FIELD_NUMBER;
+      hash = (53 * hash) + getSignalList().hashCode();
     }
     if (getTradeMetadataCount() > 0) {
       hash = (37 * hash) + TRADEMETADATA_FIELD_NUMBER;
@@ -375,6 +371,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getSignalFieldBuilder();
         getTradeMetadataFieldBuilder();
         getChartListFieldBuilder();
       }
@@ -383,7 +380,13 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      buySell_ = emptyIntList();
+      if (signalBuilder_ == null) {
+        signal_ = java.util.Collections.emptyList();
+      } else {
+        signal_ = null;
+        signalBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (tradeMetadataBuilder_ == null) {
         tradeMetadata_ = java.util.Collections.emptyList();
       } else {
@@ -429,6 +432,15 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(GetTimeTravelResponse result) {
+      if (signalBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          signal_ = java.util.Collections.unmodifiableList(signal_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.signal_ = signal_;
+      } else {
+        result.signal_ = signalBuilder_.build();
+      }
       if (tradeMetadataBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           tradeMetadata_ = java.util.Collections.unmodifiableList(tradeMetadata_);
@@ -442,10 +454,6 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(GetTimeTravelResponse result) {
       int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        buySell_.makeImmutable();
-        result.buySell_ = buySell_;
-      }
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.chartList_ = chartListBuilder_ == null
@@ -500,16 +508,31 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(GetTimeTravelResponse other) {
       if (other == GetTimeTravelResponse.getDefaultInstance()) return this;
-      if (!other.buySell_.isEmpty()) {
-        if (buySell_.isEmpty()) {
-          buySell_ = other.buySell_;
-          buySell_.makeImmutable();
-          bitField0_ |= 0x00000001;
-        } else {
-          ensureBuySellIsMutable();
-          buySell_.addAll(other.buySell_);
+      if (signalBuilder_ == null) {
+        if (!other.signal_.isEmpty()) {
+          if (signal_.isEmpty()) {
+            signal_ = other.signal_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureSignalIsMutable();
+            signal_.addAll(other.signal_);
+          }
+          onChanged();
         }
-        onChanged();
+      } else {
+        if (!other.signal_.isEmpty()) {
+          if (signalBuilder_.isEmpty()) {
+            signalBuilder_.dispose();
+            signalBuilder_ = null;
+            signal_ = other.signal_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            signalBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSignalFieldBuilder() : null;
+          } else {
+            signalBuilder_.addAllMessages(other.signal_);
+          }
+        }
       }
       if (tradeMetadataBuilder_ == null) {
         if (!other.tradeMetadata_.isEmpty()) {
@@ -566,20 +589,17 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              int v = input.readInt32();
-              ensureBuySellIsMutable();
-              buySell_.addInt(v);
-              break;
-            } // case 8
             case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              ensureBuySellIsMutable();
-              while (input.getBytesUntilLimit() > 0) {
-                buySell_.addInt(input.readInt32());
+              Signal m =
+                  input.readMessage(
+                      Signal.parser(),
+                      extensionRegistry);
+              if (signalBuilder_ == null) {
+                ensureSignalIsMutable();
+                signal_.add(m);
+              } else {
+                signalBuilder_.addMessage(m);
               }
-              input.popLimit(limit);
               break;
             } // case 10
             case 18: {
@@ -619,88 +639,244 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList buySell_ = emptyIntList();
-    private void ensureBuySellIsMutable() {
-      if (!buySell_.isModifiable()) {
-        buySell_ = makeMutableCopy(buySell_);
+    private java.util.List<Signal> signal_ =
+      java.util.Collections.emptyList();
+    private void ensureSignalIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        signal_ = new java.util.ArrayList<Signal>(signal_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        Signal, Signal.Builder, SignalOrBuilder> signalBuilder_;
+
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public java.util.List<Signal> getSignalList() {
+      if (signalBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(signal_);
+      } else {
+        return signalBuilder_.getMessageList();
       }
-      bitField0_ |= 0x00000001;
     }
     /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @return A list containing the buySell.
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public java.util.List<Integer>
-        getBuySellList() {
-      buySell_.makeImmutable();
-      return buySell_;
+    public int getSignalCount() {
+      if (signalBuilder_ == null) {
+        return signal_.size();
+      } else {
+        return signalBuilder_.getCount();
+      }
     }
     /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @return The count of buySell.
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public int getBuySellCount() {
-      return buySell_.size();
+    public Signal getSignal(int index) {
+      if (signalBuilder_ == null) {
+        return signal_.get(index);
+      } else {
+        return signalBuilder_.getMessage(index);
+      }
     }
     /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @param index The index of the element to return.
-     * @return The buySell at the given index.
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public int getBuySell(int index) {
-      return buySell_.getInt(index);
-    }
-    /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @param index The index to set the value at.
-     * @param value The buySell to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBuySell(
-        int index, int value) {
-
-      ensureBuySellIsMutable();
-      buySell_.setInt(index, value);
-      bitField0_ |= 0x00000001;
-      onChanged();
+    public Builder setSignal(
+        int index, Signal value) {
+      if (signalBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSignalIsMutable();
+        signal_.set(index, value);
+        onChanged();
+      } else {
+        signalBuilder_.setMessage(index, value);
+      }
       return this;
     }
     /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @param value The buySell to add.
-     * @return This builder for chaining.
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder addBuySell(int value) {
-
-      ensureBuySellIsMutable();
-      buySell_.addInt(value);
-      bitField0_ |= 0x00000001;
-      onChanged();
+    public Builder setSignal(
+        int index, Signal.Builder builderForValue) {
+      if (signalBuilder_ == null) {
+        ensureSignalIsMutable();
+        signal_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        signalBuilder_.setMessage(index, builderForValue.build());
+      }
       return this;
     }
     /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @param values The buySell to add.
-     * @return This builder for chaining.
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder addAllBuySell(
-        Iterable<? extends Integer> values) {
-      ensureBuySellIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, buySell_);
-      bitField0_ |= 0x00000001;
-      onChanged();
+    public Builder addSignal(Signal value) {
+      if (signalBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSignalIsMutable();
+        signal_.add(value);
+        onChanged();
+      } else {
+        signalBuilder_.addMessage(value);
+      }
       return this;
     }
     /**
-     * <code>repeated int32 buySell = 1;</code>
-     * @return This builder for chaining.
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
      */
-    public Builder clearBuySell() {
-      buySell_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
+    public Builder addSignal(
+        int index, Signal value) {
+      if (signalBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSignalIsMutable();
+        signal_.add(index, value);
+        onChanged();
+      } else {
+        signalBuilder_.addMessage(index, value);
+      }
       return this;
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder addSignal(
+        Signal.Builder builderForValue) {
+      if (signalBuilder_ == null) {
+        ensureSignalIsMutable();
+        signal_.add(builderForValue.build());
+        onChanged();
+      } else {
+        signalBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder addSignal(
+        int index, Signal.Builder builderForValue) {
+      if (signalBuilder_ == null) {
+        ensureSignalIsMutable();
+        signal_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        signalBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder addAllSignal(
+        Iterable<? extends Signal> values) {
+      if (signalBuilder_ == null) {
+        ensureSignalIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, signal_);
+        onChanged();
+      } else {
+        signalBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder clearSignal() {
+      if (signalBuilder_ == null) {
+        signal_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        signalBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Builder removeSignal(int index) {
+      if (signalBuilder_ == null) {
+        ensureSignalIsMutable();
+        signal_.remove(index);
+        onChanged();
+      } else {
+        signalBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Signal.Builder getSignalBuilder(
+        int index) {
+      return getSignalFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public SignalOrBuilder getSignalOrBuilder(
+        int index) {
+      if (signalBuilder_ == null) {
+        return signal_.get(index);  } else {
+        return signalBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public java.util.List<? extends SignalOrBuilder>
+         getSignalOrBuilderList() {
+      if (signalBuilder_ != null) {
+        return signalBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(signal_);
+      }
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Signal.Builder addSignalBuilder() {
+      return getSignalFieldBuilder().addBuilder(
+          Signal.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public Signal.Builder addSignalBuilder(
+        int index) {
+      return getSignalFieldBuilder().addBuilder(
+          index, Signal.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .coin.algorithm.grpc.service.generated.Signal signal = 1;</code>
+     */
+    public java.util.List<Signal.Builder>
+         getSignalBuilderList() {
+      return getSignalFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        Signal, Signal.Builder, SignalOrBuilder>
+        getSignalFieldBuilder() {
+      if (signalBuilder_ == null) {
+        signalBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            Signal, Signal.Builder, SignalOrBuilder>(
+                signal_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        signal_ = null;
+      }
+      return signalBuilder_;
     }
 
     private java.util.List<TradeMetadata> tradeMetadata_ =
